@@ -1,0 +1,24 @@
+{
+  "name": "injection",
+  "version": "0.0.0",
+  "description": "injection\r =========",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andrewjmead/injection.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/andrewjmead/injection/issues"
+  },
+  "dependencies": {
+    "mocha": "~1.13.0"
+  }
+}

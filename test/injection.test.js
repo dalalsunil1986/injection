@@ -1,5 +1,5 @@
 /**
- * injection
- * injection object prototype
+ * test suite for injeciton
  */
 
+var mocha = require('mocha');
