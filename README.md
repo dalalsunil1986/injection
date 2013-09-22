@@ -1,0 +1,4 @@
+injection
+=========
+
+Simple dependency injection.
