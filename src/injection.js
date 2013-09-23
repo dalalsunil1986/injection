@@ -13,6 +13,8 @@ function Inject(data) {
 /**
  * @method execute
  * process a function and inject its dependencies
+ *
+ * @param func {Function} - function to call with injected dependencies
  */
 Inject.prototype.execute = function (func) {
   var that = this,
@@ -28,6 +30,10 @@ Inject.prototype.execute = function (func) {
 /**
  * @method _getDependencies
  * internal method for parsing a functions for dependencies
+ *
+ * @param func {function} - function to get dependencies for
+ *
+ * @return {Array} - array of parameters
  */
 Inject.prototype._getDependencies = function (func) {
   var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg,
@@ -48,23 +54,5 @@ Inject.prototype.register = function (key, value) {
   this.dependencies[key] = value;
   return this;
 };
-
-/**
- * @example
- *
- *
- var apis = new Inject({
-  url: '/api/v1'
-});
-
- apis.register('saying', 'yo ho, yo ho!');
-
- apis.execute(function (saying, test, url) {
-  console.log(saying); // > yo ho, yo ho!
-  console.log(test); // > undefined
-  console.log(url); // > /api/v1
-});
-
- */
 
 module.exports = Inject;
