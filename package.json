@@ -19,6 +19,7 @@
     "url": "https://github.com/andrewjmead/injection/issues"
   },
   "dependencies": {
-    "mocha": "~1.13.0"
+    "mocha": "~1.13.0",
+    "should": "~1.3.0"
   }
 }
