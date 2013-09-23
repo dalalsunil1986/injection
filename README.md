@@ -3,6 +3,7 @@ Injection
 
 Simple dependency injection.
 
+[jsFiddle Example](http://jsfiddle.net/andrewjmead/x23Cd/)
 
 ##Getting Started
 Using Injection is simple. Setup your dependencies and execute your functions!
