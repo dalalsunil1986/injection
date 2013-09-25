@@ -2,7 +2,7 @@
 
 /**
  * @class Inject
- * create an instance on inject to execute function
+ * create an instance on inject to resolve function
  *
  * @param data {object} initial dependencies
  */
@@ -11,12 +11,12 @@ function Inject(data) {
 }
 
 /**
- * @method execute
- * process a function and inject its dependencies
+ * @method resolve
+ * call a function with resolved dependencies
  *
  * @param func {Function} - function to call with injected dependencies
  */
-Inject.prototype.execute = function (func) {
+Inject.prototype.resolve = function (func) {
   var that = this,
       deps = this._getDependencies(func);
 
@@ -25,6 +25,18 @@ Inject.prototype.execute = function (func) {
   });
 
   func.apply(undefined, deps);
+};
+
+/**
+ * @method register
+ * register a new dependency
+ *
+ * @param key {string}
+ * @param value {string}
+ */
+Inject.prototype.register = function (key, value) {
+  this.dependencies[key] = value;
+  return this;
 };
 
 /**
@@ -41,18 +53,6 @@ Inject.prototype._getDependencies = function (func) {
       result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(/([^\s,]+)/g) || [];
 
   return result;
-};
-
-/**
- * @method register
- * register a new dependency
- *
- * @param key {string}
- * @param value {string}
- */
-Inject.prototype.register = function (key, value) {
-  this.dependencies[key] = value;
-  return this;
 };
 
 module.exports = Inject;

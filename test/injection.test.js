@@ -55,7 +55,7 @@ describe('Injection', function () {
       name.should.equal('andrew');
     }
 
-    inject.execute(sayHi);
+    inject.resolve(sayHi);
   });
 
   it('should resolve undefined dependencies as undefined', function () {
@@ -68,7 +68,7 @@ describe('Injection', function () {
       lastName.should.equal('name');
     }
 
-    inject.execute(sayHi);
+    inject.resolve(sayHi);
   });
 
 });
