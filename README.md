@@ -1,34 +1,35 @@
 Injection
 =========
 
-Simple dependency injection.
+Simple dependency injection, everywhere you use javascript.
 
 [jsFiddle Example](http://jsfiddle.net/andrewjmead/x23Cd/)
 
 ##Getting Started
-Using Injection is simple. Setup your dependencies and execute your functions!
+Using Injection is simple. Setup your dependencies and execute your functions! You can grab the code from ```/src/inject.js```.
 
-	/* setup initial dependencies */
+###Add initial dependencies
 	var inject = new Inject({
 	  "url": "www.foo.bar"
 	});
 
-	/* add another dependency after initialization */
+###Add additional dependencies
 	inject.register('name', 'andrew');
 	
-	function func (name, nonexistant, url) {
-	  console.log(name);          // > andrew
-	  console.log(nonexistant);  // > undefined
-	  console.log(url);          // > www.foo.bar
-	}
-	
+###Resolve dependencies	
 	/* call function and inject dependencies */
 	inject.execute(func);
+
+    function func (name, nonexistant, url) {
+      console.log(name);  // > andrew
+      console.log(nonexistant);  // > undefined
+      console.log(url);  // > www.foo.bar
+    }
 
 ##API
 
 ```new Inject (initialDependencies)```
- - Setup your initial dependencies. The returned object will allow you to resolve dependencies, and register further dependencies. You can register dependencies at any time using ```register(key, value)```. 
+ - Setup your initial dependencies. The returned object will allow you to resolve dependencies, and register further dependencies.
 
 ```register (key, value)```
  - Add a new dependency to an existing instance. You can also override existing dependencies
