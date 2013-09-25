@@ -1,12 +1,12 @@
 Injection
 =========
 
-Simple dependency injection, everywhere you use javascript.
+Simple dependency injection, everywhere you use JavaScript.
 
 [jsFiddle Example](http://jsfiddle.net/andrewjmead/x23Cd/)
 
 ##Getting Started
-Using Injection is simple. Setup your dependencies and execute your functions! You can grab the code from ```/src/inject.js```.
+Using Injection is simple. Setup your dependencies and resolve your functions dependencies! You can grab the code from ```/src/inject.js```.
 
 ###Add initial dependencies
 	var inject = new Inject({
@@ -18,7 +18,7 @@ Using Injection is simple. Setup your dependencies and execute your functions! Y
 	
 ###Resolve dependencies	
 	/* call function and inject dependencies */
-	inject.execute(func);
+	inject.resolve(func);
 
     function func (name, nonexistant, url) {
       console.log(name);  // > andrew
@@ -34,7 +34,7 @@ Using Injection is simple. Setup your dependencies and execute your functions! Y
 ```register (key, value)```
  - Add a new dependency to an existing instance. You can also override existing dependencies
 
-```execute (someFunction)```
+```resolve (someFunction)```
  - Resolve dependencies for the function and call the function.
 
 ##License
