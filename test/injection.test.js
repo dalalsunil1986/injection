@@ -58,17 +58,18 @@ describe('Injection', function () {
         inject.resolve(sayHi);
     });
 
-    it('should resolve aynchronous dependencies', function (callback) {
+    it('should resolve asynchronous dependencies', function (callback) {
         var inject = new Inject({
             "something": function (callback) {
                 setTimeout(function () {
                     callback('test')
-                }, 2000);
+                }, 500);
             }
         });
 
         function sayHi(something) {
             something.should.equal('test');
+            callback();
         }
 
         inject.resolve(sayHi);
