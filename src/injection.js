@@ -7,7 +7,7 @@
  * @param data {object} initial dependencies
  */
 function Inject(data) {
-  this.dependencies = data || {};
+    this.dependencies = data || {};
 }
 
 /**
@@ -17,14 +17,14 @@ function Inject(data) {
  * @param func {Function} - function to call with injected dependencies
  */
 Inject.prototype.resolve = function (func) {
-  var that = this,
-      deps = this._getDependencies(func);
+    var that = this,
+        deps = this._getDependencies(func);
 
-  deps = deps.map(function (arg) {
-    return that.dependencies[arg];
-  });
+    deps = deps.map(function (arg) {
+        return that.dependencies[arg];
+    });
 
-  func.apply(undefined, deps);
+    func.apply(undefined, deps);
 };
 
 /**
@@ -35,8 +35,8 @@ Inject.prototype.resolve = function (func) {
  * @param value {string}
  */
 Inject.prototype.register = function (key, value) {
-  this.dependencies[key] = value;
-  return this;
+    this.dependencies[key] = value;
+    return this;
 };
 
 /**
@@ -48,11 +48,11 @@ Inject.prototype.register = function (key, value) {
  * @return {Array} - array of parameters
  */
 Inject.prototype._getDependencies = function (func) {
-  var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg,
-      fnStr = func.toString().replace(STRIP_COMMENTS, ''),
-      result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(/([^\s,]+)/g) || [];
+    var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg,
+        fnStr = func.toString().replace(STRIP_COMMENTS, ''),
+        result = fnStr.slice(fnStr.indexOf('(') + 1, fnStr.indexOf(')')).match(/([^\s,]+)/g) || [];
 
-  return result;
+    return result;
 };
 
 module.exports = Inject;
