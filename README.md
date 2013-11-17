@@ -15,6 +15,14 @@ Using Injection is simple. Setup your dependencies and resolve your functions de
 
 ###Add additional dependencies
 	inject.register('name', 'andrew');
+
+You can also register asynchronous dependencies. You need to register a function as the value, and call the callback function with the data to store.
+
+	inject.register('data', function (callback) {
+        setTimeout(function () {
+            callback('test')
+        }, 500);
+    });
 	
 ###Resolve dependencies	
 	/* call function and inject dependencies */
