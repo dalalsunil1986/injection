@@ -15,6 +15,14 @@ Using Injection is simple. Setup your dependencies and resolve your functions de
 
 ###Add additional dependencies
 	inject.register('name', 'andrew');
+
+You can also register asynchronous dependencies. You need to register a function as the value, and call the callback function with the data to store.
+
+	inject.register('data', function (callback) {
+        setTimeout(function () {
+            callback('test')
+        }, 500);
+    });
 	
 ###Resolve dependencies	
 	/* call function and inject dependencies */
@@ -32,7 +40,7 @@ Using Injection is simple. Setup your dependencies and resolve your functions de
  - Setup your initial dependencies. The returned object will allow you to resolve dependencies, and register further dependencies.
 
 ```register (key, value)```
- - Add a new dependency to an existing instance. You can also override existing dependencies
+ - Add a new dependency to an existing instance. You can also override existing dependencies. For asynchronous dependencies, pass a function as the value (see example above).
 
 ```resolve (someFunction)```
  - Resolve dependencies for the function and call the function.
