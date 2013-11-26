@@ -25,15 +25,14 @@ You can also register asynchronous dependencies. You need to register a function
     });
 	
 ###Resolve dependencies	
-	/* call function and inject dependencies */
-	inject.resolve(func);
-
     function func (name, nonexistant, url) {
       console.log(name);  // > andrew
       console.log(nonexistant);  // > undefined
       console.log(url);  // > www.foo.bar
     }
 
+	/* call function and inject dependencies */
+	inject.resolve(func);
 ##API
 
 ```new Inject (initialDependencies)```
